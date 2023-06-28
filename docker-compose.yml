@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  ts-express-server:
+    build: .
+    container_name: ts-express-server
+    env_file:
+      - ./.env 
+    ports:
+      - "4545:4545"
+    depends_on:
+      - ts-express-redis
+  ts-express-redis:
+    image: redis:7-alpine
+    container_name: ts-express-redis-c
+    volumes:
+      - ts-express-redis:/data
+
+volumes:
+  ts-express-redis:
