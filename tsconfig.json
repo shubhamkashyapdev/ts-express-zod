@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "commonjs",
+    "target": "ES2020",
+    "module": "NodeNext",
     "outDir": "build",
     "strict": true,
     "rootDir": "./src",

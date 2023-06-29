@@ -10,4 +10,5 @@ export default {
   REDIS_PORT: process.env.REDIS_PORT,
   SLACK_WEBHOOK_URL: process.env.SLACK_WEBHOOK_URL,
   SLACK_CHANNEL: `${process.env.SLACK_CHANNEL}`,
+  OPENAI_API_KEY: `${process.env.OPENAI_API_KEY}`,
 };

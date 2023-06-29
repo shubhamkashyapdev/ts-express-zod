@@ -5,7 +5,7 @@ import { connectDB } from '@config/connectDB';
 import cors from 'cors';
 
 // IMPORT ROUTERS
-import userRouter from '@routers/users.router';
+import { UserRouter, LangchainRouter } from '@routers/index';
 
 import { rClient } from '@config/redis';
 import logger from '@utils/logger';
@@ -33,8 +33,8 @@ app.get('/api/v1', rateLimiter(10, 30), (req, res) => {
 });
 
 // REGISTER ROUTERS
-app.use('/api/v1/users', userRouter);
-
+app.use('/api/v1/users', UserRouter);
+app.use('/api/v1/langchain', LangchainRouter);
 app.listen(PORT, async () => {
   console.log(
     `[ ready ] http://localhost:${PORT} IN ${process.env.NODE_ENV} ENVIRONMENT`,
