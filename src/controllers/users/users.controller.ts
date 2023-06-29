@@ -24,6 +24,11 @@ export const getAllUsers = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * Access: Protected
+ * @param {username}
+ * Description: Get user account information by username
+ */
 export const getUserByUsername = async (req: Request, res: Response) => {
   const username = req.params.username as string;
   try {
@@ -116,6 +121,7 @@ export const requestOTP = async (req: Request, res: Response) => {
  */
 export const verifyOTP = async (req: Request, res: Response) => {
   try {
+    const reqUser = req.user;
     const type = req.params.type as 'phone' | 'email';
     if (type !== 'phone' && type !== 'email') {
       const response = resGeneric({

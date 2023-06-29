@@ -12,11 +12,12 @@ import {
   userRegisterZodSchema,
 } from '@schemas/users.schema';
 import { validateResource } from '@middlewares/index';
+import { protect } from '@middlewares/auth.middleware';
 
 const router = Router();
 
 router.route('/').get(getAllUsers);
-router.route('/:username').get(getUserByUsername);
+router.route('/:username').get(protect, getUserByUsername);
 router.route('/request-otp/:type').post(requestOTP);
 router.route('/verify-otp/:type').post(verifyOTP);
 router.route('/login').post(validateResource(userLoginZodSchema), loginUser);

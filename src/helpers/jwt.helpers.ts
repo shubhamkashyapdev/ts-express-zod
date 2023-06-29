@@ -5,7 +5,7 @@ import { IJWTPayload, IUser } from '@/types/users';
 
 export const encodeJWT = (user: IUser): string => {
   const payload: IJWTPayload = {
-    id: user.id,
+    id: user._id,
   };
   const token = jwt.sign(payload, creds.JWT_SECRET_KEY, {
     expiresIn: creds.JWT_EXPIRATION_TIME,

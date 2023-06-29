@@ -2,7 +2,8 @@ import { userLoginZodSchema, userRegisterSchema } from '@schemas/users.schema';
 import { z } from 'zod';
 
 interface IUser {
-  id: string;
+  id?: string;
+  _id: string;
   username: string;
   email: string;
   password: string;
